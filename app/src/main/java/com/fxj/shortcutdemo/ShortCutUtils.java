@@ -12,6 +12,8 @@ public class ShortCutUtils {
     public static void addShortCut(Context context, int iconResId, String title, Intent launcherIntent){
         Intent addShortCutIntent=new Intent("com.android.launcher.action.INSTALL_SHORTCUT");
 
+        addShortCutIntent.putExtra("duplicate",false);/*不允许重复创建快捷方式*/
+
         Intent.ShortcutIconResource icon=Intent.ShortcutIconResource.fromContext(context,iconResId);
         addShortCutIntent.putExtra(Intent.EXTRA_SHORTCUT_ICON_RESOURCE,icon);/*设置快捷方式icon*/
 
